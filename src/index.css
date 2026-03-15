@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #c39a3e;
+  --color-brand-gold-light: #e6c579;
+  --color-brand-gold-dark: #8c6a21;
+  --color-brand-gold-muted: #a8842f;
+
+  --color-emerald-brand: #046307;
+  --color-emerald-light: #50C878;
+  --color-emerald-dark: #023804;
+  --color-emerald-glow: #0a8f0e;
+
+  --color-bg-dark: #060606;
+  --color-bg-card: #0e0e0e;
+  --color-bg-elevated: #141414;
+  --color-bg-surface: #1a1a1a;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-dark);
+    color: #ffffff;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Noise texture overlay on body */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+}
+
+/* Luxury serif heading utility */
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--color-brand-gold-dark) 0%,
+    var(--color-brand-gold-light) 20%,
+    var(--color-brand-gold) 40%,
+    var(--color-brand-gold-light) 60%,
+    var(--color-brand-gold-dark) 80%,
+    var(--color-brand-gold-light) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 6s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Faceted gem-cut border effect */
+.gem-border {
+  position: relative;
+}
+
+.gem-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-gold-dark) 0%,
+    transparent 30%,
+    transparent 70%,
+    var(--color-brand-gold-dark) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-gold-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gold);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-brand-gold-dark);
+  color: white;
+}
