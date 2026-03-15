@@ -3,10 +3,17 @@ import { motion } from 'framer-motion';
 import { Search, Filter, Eye } from 'lucide-react';
 
 const products = [
-    { id: 1, name: "Anillo Esmeralda Gota", price: "$1,200", seller: "GoldenGems", image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop", tag: null },
-    { id: 2, name: "Esmeralda en Bruto 5ct", price: "Negociable", seller: "Esmeraldas Colombia", image: "https://images.unsplash.com/photo-1551122089-4e3e72477432?q=80&w=800&auto=format&fit=crop", tag: "Negociable" },
-    { id: 3, name: "Collar Oro y Esmeralda", price: "$3,400", seller: "GoldenGems", image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=800&auto=format&fit=crop", tag: null },
-    { id: 4, name: "Topitos Clásicos", price: "$450", seller: "Joyería Fina", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop", tag: "Nuevo" }
+    { id: 1, name: "Anillo de oro con esmeralda", price: "$1,200", seller: "GoldenGems", image: `${import.meta.env.BASE_URL}Imagenes/1.PNG`, tag: null },
+    { id: 2, name: "Pulsera de oro con esmeralda", price: "Negociable", seller: "Esmeraldas Colombia", image: `${import.meta.env.BASE_URL}Imagenes/2.PNG`, tag: "Negociable" },
+    { id: 3, name: "Anillo de oro con esmeralda", price: "$3,400", seller: "GoldenGems", image: `${import.meta.env.BASE_URL}Imagenes/3.PNG`, tag: null },
+    { id: 4, name: "Pulsera de oro con esmeralda", price: "$450", seller: "Joyería Fina", image: `${import.meta.env.BASE_URL}Imagenes/4.PNG`, tag: "Nuevo" },
+    { id: 5, name: "Anillo de oro con esmeralda", price: "$2,800", seller: "GoldenGems", image: `${import.meta.env.BASE_URL}Imagenes/5.PNG`, tag: null },
+    { id: 6, name: "Pulsera de oro con esmeralda", price: "Negociable", seller: "Esmeraldas Colombia", image: `${import.meta.env.BASE_URL}Imagenes/6.PNG`, tag: "Negociable" },
+    { id: 7, name: "Anillo de oro con esmeralda", price: "$1,650", seller: "GoldenGems", image: `${import.meta.env.BASE_URL}Imagenes/7.PNG`, tag: null },
+    { id: 8, name: "Anillo de oro con esmeralda", price: "$5,200", seller: "Joyería Fina", image: `${import.meta.env.BASE_URL}Imagenes/8.PNG`, tag: "Exclusivo" },
+    { id: 9, name: "Anillo de oro con esmeralda", price: "$3,100", seller: "GoldenGems", image: `${import.meta.env.BASE_URL}Imagenes/9.PNG`, tag: null },
+    { id: 10, name: "Anillo de oro con esmeralda", price: "Negociable", seller: "Esmeraldas Colombia", image: `${import.meta.env.BASE_URL}Imagenes/10.PNG`, tag: "Negociable" },
+    { id: 11, name: "Colección Especial", price: "$4,700", seller: "GoldenGems", image: `${import.meta.env.BASE_URL}Imagenes/11.jpg`, tag: "Nuevo" },
 ];
 
 const tabs = ['Todos', 'GoldenGems Oficial', 'Esmeraldas en Bruto', 'Joyería de Terceros'];
@@ -16,11 +23,10 @@ const Showcase = () => {
 
     return (
         <section id="showcase" className="py-32 md:py-40 bg-[var(--color-bg-card)] relative">
-            {/* Top border */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                {/* Header row */}
+                {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
                     <div>
                         <motion.span
@@ -107,52 +113,51 @@ const Showcase = () => {
                 </motion.div>
 
                 {/* Product grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
                     {products.map((product, index) => (
                         <motion.div
                             key={product.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ delay: index * 0.06, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                             className="group cursor-pointer"
                         >
-                            <div className="relative aspect-[3/4] overflow-hidden mb-5 bg-zinc-900">
+                            <div className="relative aspect-square overflow-hidden mb-4 bg-zinc-900">
                                 <img
                                     src={product.image}
                                     alt={product.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s] ease-out opacity-75 group-hover:opacity-100"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s] ease-out opacity-85 group-hover:opacity-100"
                                 />
 
-                                {/* Tag */}
                                 {product.tag && (
-                                    <div className={`absolute top-4 left-4 text-[10px] font-medium px-3 py-1.5 uppercase tracking-[0.2em] backdrop-blur-md ${
+                                    <div className={`absolute top-3 left-3 text-[9px] font-medium px-2.5 py-1 uppercase tracking-[0.2em] backdrop-blur-md ${
                                         product.tag === 'Negociable'
                                             ? 'bg-[var(--color-emerald-brand)]/80 text-white'
-                                            : 'bg-[var(--color-brand-gold)]/90 text-black'
+                                            : product.tag === 'Exclusivo'
+                                            ? 'bg-[var(--color-brand-gold)]/90 text-black'
+                                            : 'bg-white/90 text-black'
                                     }`}>
                                         {product.tag}
                                     </div>
                                 )}
 
-                                {/* Hover overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                                    <button className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 text-[11px] uppercase tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                                        <Eye size={14} />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                                    <button className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all duration-300 translate-y-3 group-hover:translate-y-0">
+                                        <Eye size={13} />
                                         Ver Detalles
                                     </button>
                                 </div>
 
-                                {/* Corner accent */}
-                                <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[var(--color-brand-gold-dark)]/0 group-hover:border-[var(--color-brand-gold-dark)]/40 transition-colors duration-500" />
-                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-[var(--color-brand-gold-dark)]/0 group-hover:border-[var(--color-brand-gold-dark)]/40 transition-colors duration-500" />
+                                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[var(--color-brand-gold-dark)]/0 group-hover:border-[var(--color-brand-gold-dark)]/40 transition-colors duration-500" />
+                                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[var(--color-brand-gold-dark)]/0 group-hover:border-[var(--color-brand-gold-dark)]/40 transition-colors duration-500" />
                             </div>
 
                             <div>
-                                <p className="text-[10px] text-[var(--color-brand-gold)] mb-1.5 uppercase tracking-[0.25em] font-medium">
+                                <p className="text-[9px] text-[var(--color-brand-gold)] mb-1 uppercase tracking-[0.25em] font-medium">
                                     {product.seller}
                                 </p>
-                                <h3 className="font-display text-lg text-white font-normal mb-1.5 group-hover:text-[var(--color-brand-gold-light)] transition-colors duration-300">
+                                <h3 className="font-display text-base text-white font-normal mb-1 group-hover:text-[var(--color-brand-gold-light)] transition-colors duration-300">
                                     {product.name}
                                 </h3>
                                 <p className="text-zinc-500 text-sm font-light">{product.price}</p>
