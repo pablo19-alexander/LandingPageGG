@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
                 <a href="#" className="flex items-center gap-2 group">
                     <img
-                        src="/goldengems-logo.png"
+                        src={`${import.meta.env.BASE_URL}goldengems-logo.png`}
                         alt="GoldenGems"
                         className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     />

@@ -11,7 +11,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div>
                         <img
-                            src="/goldengems-logo.png"
+                            src={`${import.meta.env.BASE_URL}goldengems-logo.png`}
                             alt="GoldenGems"
                             className="h-16 md:h-20 w-auto object-contain mb-6"
                         />
