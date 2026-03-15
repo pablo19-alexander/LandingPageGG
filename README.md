@@ -1,74 +1,48 @@
-# React + TypeScript + Vite
+# GoldenGems - Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objetivo
 
-Currently, two official plugins are available:
+GoldenGems es el primer marketplace digital especializado en la comercialización de esmeraldas en bruto y joyería fina. La plataforma conecta de forma directa a vendedores (empresas esmeralderas y joyeros) con compradores nacionales e internacionales, eliminando intermediarios y modernizando un mercado tradicionalmente informal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Problema que resuelve
 
-## React Compiler
+Muchos comerciantes de esmeraldas en Colombia carecen de presencia digital y dependen de canales informales para vender sus productos. GoldenGems les ofrece una vitrina digital donde pueden publicar su inventario y acceder a un mercado global.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Funcionalidades principales
 
-## Expanding the ESLint configuration
+- **Vitrina Digital**: Espacios personalizados para que vendedores exhiban sus esmeraldas y joyas.
+- **Negociación Directa**: Chat integrado para que compradores y vendedores acuerden precios en tiempo real.
+- **Pagos Seguros**: Pasarela de pagos integrada que garantiza transparencia en cada transacción.
+- **Garantía GoldenGems**: Supervisión de transacciones con una comisión que respalda la calidad del servicio.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Tipos de usuario
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Comprador**: Explora el catálogo, personaliza su feed y negocia precios por chat.
+- **Vendedor**: Crea su vitrina, publica productos y recibe ofertas directas.
+- **Visitante**: Navega la vitrina oficial de GoldenGems sin necesidad de registro.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React 19** + **TypeScript**
+- **Vite 7** (bundler y dev server)
+- **Tailwind CSS 4** (estilos)
+- **Framer Motion** (animaciones)
+- **Lucide React** (iconografía)
+
+## Instalación
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+La app estará disponible en `http://localhost:5173/`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# LandingPageGG
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Compila para producción |
+| `npm run preview` | Previsualiza el build de producción |
+| `npm run lint` | Ejecuta ESLint |
